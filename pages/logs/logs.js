@@ -41,5 +41,8 @@ Page({
       toastHidden: false
     })
     this.getLogs()
+  },
+  chageBackground: function(){
+    console.log("====")
   }
 })

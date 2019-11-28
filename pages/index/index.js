@@ -98,6 +98,7 @@ Page({
   updateTimer: function() {
     let log = this.data.log
     let now = Date.now()
+    // now = log.endTime - 1
     let remainingTime = Math.round((log.endTime - now) / 1000)
     let H = util.formatTime(Math.floor(remainingTime / (60 * 60)) % 24, 'HH')
     let M = util.formatTime(Math.floor(remainingTime / (60)) % 60, 'MM')
@@ -114,6 +115,7 @@ Page({
       this.setData({
         completed: true
       })
+      this.alert()
       this.stopTimer()
       return
     }
@@ -136,6 +138,16 @@ Page({
 
   changeLogName: function(e) {
     this.logName = e.detail.value
+  },
+
+  alert: function(){
+    console.log("已结束！！！")
+    // wx.playBackgroundAudio({
+    //   dataUrl: '../../image/1.mp3',
+    //   title: '',
+    //   coverImgUrl: ''
+    // })
+    // console.log("已结束2！！！")
   },
 
   saveLog: function(log) {
